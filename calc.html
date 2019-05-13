@@ -139,23 +139,12 @@ ga('send', 'pageview');</script>-->
             <input id="weeklypages" type="number" class="form-control" value="0">
           </div>
           <hr>
-          <div class="form-group shiny-input-container">
-            <label class="control-label" for="readingdensity">Reading Density:</label>
-            <div>
-              <select id="readingdensity">
-                <option value="1" selected>Devotional</option>
-                <option value="2">Devotional/Technical</option>
-                <option value="3">Technical</option>
-              </select>
-              <script type="application/json" data-for="readingdensity" data-nonempty>{}</script>
-            </div>
-          </div>
+          
           <p align="center">
-            <strong>Estimated Reading Rate:</strong>
-            <br>
-            <span id="pagesperhour.out" class="shiny-text-output"></span>
-            <br>
-            <br>
+            <div class="form-group shiny-input-container">
+              <label for="overridepagesperhour">Pages Read Per Hour:</label>
+              <input id="overridepagesperhour" type="number" class="form-control" value="0" min="0"/>
+            </div>
           </p>
         </div>
       </div>
