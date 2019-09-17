@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.3];shiny[0.13.2];selectize[0.11.2];ionrangeslider[2.0.12];strftime[0.9.2];bootstrap[3.3.5]</script>
+  <script src="shared/json2-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <link href="shared/shiny.css" rel="stylesheet" />
+  <link href="shared/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+  <link href="shared/ionrangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+  <link href="shared/ionrangeslider/css/ion.rangeSlider.skinShiny.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="shared/bootstrap/css/updates.css" rel="stylesheet" />
+  <script src="__assets__/sockjs-0.3.4.min.js"></script>
+  <script src="__assets__/shiny-server.js"></script>
+  <link rel="stylesheet" type="text/css" href="__assets__/shiny-server.css"/>
+  <script src="server.R"></script>
+  <script src="ui.R"></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h3 align="center">Course Workload Estimator</h3>
+    <hr/>
+    <div class="row">
+      <div class="col-sm-3">
+        <h4>READING ASSIGNMENTS</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="weeklypages">Pages Per Term:</label>
+            <input id="weeklypagesreading" min='0' type="number" class="form-control" value="0"/>
+          </div>
+          <hr/>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="readingdensity">Page Density:</label>
+            <div>
+              <select id="readingdensity">
+                <option value="1" selected>Low Density(450 Words)</option>
+                <option value="2">Medium Density(600 Words)</option>
+                <option value="3">High Density(750 Words)</option>
+              </select>
+              <script type="application/json" data-for="readingdensity" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="difficulty">Difficulty:</label>
+            <div>
+              <select id="readingdifficulty">
+                <option value="1" selected>No New Concepts</option>
+                <option value="2">Some New Concepts</option>
+                <option value="3">Many New Concepts</option>
+              </select>
+              <script type="application/json" data-for="difficulty" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="readingpurpose">Purpose:</label>
+            <div>
+              <select id="readingpurpose">
+                <option value="1" selected>Survey</option>
+                <option value="2">Understand</option>
+                <option value="3">Engage</option>
+              </select>
+              <script type="application/json" data-for="readingpurpose" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <p align="center">
+            <strong>Estimated Reading Rate:</strong>
+            <br/>
+            <span id="pagesperhour.out" class="shiny-text-output"></span>
+            <br/>
+            <br/>
+            <div class="form-group shiny-input-container" style="width: 100%;">
+              <div class="checkbox">
+                <label>
+                  <input id="setreadingrate" type="checkbox"/>
+                  <span>manually adjust</span>
+                </label>
+              </div>
+            </div>
+          </p>
+          <div id="manualAdjuster" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label for="overridepagesperhour">Pages Read Per Hour:</label>
+              <input id="overridepagesperhour" type="number" class="form-control" value="0" min="0"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4>OTHER READING</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="weeklypages2">Pages Per Term:</label>
+            <input id="weeklypagesreading2" min='0' type="number" class="form-control" value="0"/>
+          </div>
+          <hr/>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="readingdensity2">Page Density:</label>
+            <div>
+              <select id="readingdensity2">
+                <option value="1" selected>Low Density(450 Words)</option>
+                <option value="2">Medium Density(600 Words)</option>
+                <option value="3">High Density(750 Words)</option>
+              </select>
+              <script type="application/json" data-for="readingdensity2" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="difficulty2">Difficulty:</label>
+            <div>
+              <select id="readingdifficulty2">
+                <option value="1" selected>No New Concepts</option>
+                <option value="2">Some New Concepts</option>
+                <option value="3">Many New Concepts</option>
+              </select>
+              <script type="application/json" data-for="difficulty2" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="readingpurpose2">Purpose:</label>
+            <div>
+              <select id="readingpurpose2">
+                <option value="1" selected>Survey</option>
+                <option value="2">Understand</option>
+                <option value="3">Engage</option>
+              </select>
+              <script type="application/json" data-for="readingpurpose2" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <p align="center">
+            <strong>Estimated Reading Rate:</strong>
+            <br/>
+            <span id="pagesperhour7.out" class="shiny-text-output"></span>
+            <br/>
+            <br/>
+            <div class="form-group shiny-input-container" style="width: 100%;">
+              <div class="checkbox">
+                <label>
+                  <input id="setreadingrate2" type="checkbox"/>
+                  <span>manually adjust</span>
+                </label>
+              </div>
+            </div>
+          </p>
+          <div id="manualAdjuster2" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label for="overridepagesperhour2">Pages Read Per Hour:</label>
+              <input id="overridepagesperhour2" type="number" class="form-control" value="0" min="0"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-3">
+        <h4>BIBLE READING</h4>
+        <div class="well">
+          <div class="form-group shiny-input container" style="width: 100%;">
+            <label for ="weeklypages">Pages Per Term:</label>
+            <input id="weeklypagesbible" min='0' type="number" class="form-control" value="0">
+          </div>
+          <hr>
+          <p align="center">
+            <strong>Estimated Reading Rate:</strong>
+            <br>
+            <span id="hoursperwriting.outer" class="shiny-text-output shiny-bound-output">10 pages per hour</span>
+            <br>
+            <br>
+          </p>
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <div class="checkbox">
+              <label>
+                <input id="setreadingrate2" type="checkbox" class="shiny-bound-input">
+                <span>manually adjust</span>
+              </label>
+            </div>
+          </div>
+          <p></p>
+          <div id="manualAdjuster2" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label for="overridepagesperhour">Pages Read Per Hour:</label>
+              <input id="overridepagesperhourbible" type="number" class="form-control shiny-bound-input" value="0" min="0">
+            </div>
+          </div>
+        </div>
+        <h4>COMMENTARY READING</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for ="weeklypages">Pages Per Term:</label>
+            <input id="weeklypagescom" type="number" min='0' class="form-control" value="0">
+          </div>
+          <hr>
+          
+          <p align="center">
+            <div class="form-group shiny-input-container">
+              <label for="overridepagesperhour">Pages Read Per Hour:</label>
+              <input id="overridepagesperhourcom" type="number" min='0' class="form-control" value="0" min="0"/>
+            </div>
+          </p>
+        </div>
+      </div> -->
+      <div class="col-sm-3">
+        <h4>PAPERS</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="semesterpages">Pages Per Term:</label>
+            <input id="semesterpages" type="number" class="form-control" min='0' value="0"/>
+          </div>
+          <hr/>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="writtendensity">Page Density:</label>
+            <div>
+              <select id="writtendensity">
+                <option value="1" selected>250 Words (D-Spaced)</option>
+                <option value="2">500 Words (S-Spaced)</option>
+              </select>  
+              <script type="application/json" data-for="writtendensity" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="writingpurpose">Genre:</label>
+            <div>
+              <select id="writingpurpose">
+                <option value="1" selected>Reflection; Narrative</option>
+                <option value="2">Argument</option>
+                <option value="3">Research</option>
+              </select>
+              <script type="application/json" data-for="writingpurpose" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="draftrevise">Drafting:</label>
+            <div>
+              <select id="draftrevise">
+                <option value="1" selected>No Drafting</option>
+                <option value="2">Minimal Drafting</option>
+                <option value="3">Extensive Drafting</option>
+              </select>
+              <script type="application/json" data-for="draftrevise" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <p align="center">
+            <strong>Estimated Writing Rate:</strong>
+            <br/>
+            <span id="hoursperwriting.out" class="shiny-text-output"></span>
+            <br/>
+            <br/>
+            <div class="form-group shiny-input-container" style="width: 100%;">
+              <div class="checkbox">
+                <label>
+                  <input id="setwritingrate3" type="checkbox"class="shiny-bound-input"/>
+                  <span>manually adjust</span>
+                </label>
+              </div>
+            </div>
+          </p>
+          <div id="manualAdjuster3" class="form-group shiny-input-container" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label for="overridehoursperwriting">Hours Per Written Page:</label>
+              <input id="overridehoursperwriting" type="number" class="form-control" value="0" min="0"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4>EXAMS</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="exams">Exams Per Term:</label>
+            <input id="exams" type="number" min='0' class="form-control" value="0"/>
+          </div>
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label class="control-label" for="examhours">Study Hours Per Exam:</label>
+            <input type="number" class="js-range-slider" id="examhours" min='0' value="0" data-min="0" data-max="50" data-from="0" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-keyboard="true" data-keyboard-step="2" data-drag-interval="true" data-data-type="number"/>
+          </div>
+        </div>
+        <h4>OTHER ASSIGNMENTS</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="otherassign">Assignments Per Term:</label>
+            <input id="otherassign" type="number" min='0' class="form-control" value="0"/>
+          </div>
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label class="control-label" for="otherhours">Hours Per Assignment:</label>
+            <input type="number" class="js-range-slider shiny-bound-input" min='0' id="otherhours" value="0" data-min="0" data-max="50" data-from="0" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-keyboard="true" data-keyboard-step="2" data-drag-interval="true" data-data-type="number"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <h4>IN CLASS TIME</h4>
+        <div class="well">
+            <div class="form-group shiny-input" style="width: 100%;">
+              <label for="lecturetime">Scheduled Class Hours Per Term:</label>
+              <input id="lecturetime" min='0' type="number" class="form-control" value="1">
+            </div>
+          </div>
+        <h4>COURSE INFO</h4>
+        <div class="well">
+          <div class="form-group shiny-input-container" style="width: 100%;">
+            <label for="classweeks">Number of Credits:</label>
+            <input id="classweeks" min='0' type="number" class="form-control" value="1"/>
+          </div>
+        </div>
+        <hr/>
+        <h4 align="center">ESTIMATED WORKLOAD</h4>
+        <div class="well">
+          <strong align="center">
+            <div id="estimatedworkload" class="shiny-text-output"></div>
+          </strong>
+        </div>
+        <p align="center">
+          <a href="http://www.cte.rice.edu/workload#howcalculated" target="blank">Estimation Details</a>
+        </p>
+        <hr/>
+        <p align="center">
+          <strong>Research &amp; Design</strong>
+          <br/>
+          <a href="http://www.elizabethbarre.com" target="blank">Elizabeth Barre</a>
+          <br/>
+          <a href="http://www.justinesarey.com" target="blank">Justin Esarey</a>
+          <br/>
+        </p>
+      </div>
+    </div>
+  </div>
+  </body>
+  </html>

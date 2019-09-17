@@ -4,7 +4,7 @@
     }
 }
 
-button, input, select, textarea {
+button, input:not([type='checkbox']), select, textarea {
     font-family: inherit;
     font-size: inherit;
     width: 85%;
