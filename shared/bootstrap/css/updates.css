@@ -42,3 +42,8 @@ label {
   font-weight: 500;
   margin-bottom: 15px;
 }
+
+#bootstrap-overrides .output-alignment {
+  margin-left: 16px;
+  color: #999999;
+}
