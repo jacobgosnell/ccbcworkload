@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="shared/bootstrap/css/updates.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <script src="main.js" defer></script>
 </head>
 
-<body>
+<body id="bootstrap-overrides">
   <div class="container-fluid">
-    <h3 align="center">Course Workload Estimator</h3>
-    <hr/>
+    <h3 class="title-main" align="center">Course Workload Estimator</h3>
+    <hr />
     <div class="row">
       <div class="col-sm-3">
         <h4>READING ASSIGNMENTS</h4>
         <div class="well">
           <div style="width: 100%;">
-            <label for="weeklypages">Pages Per Term:</label>
+            <label class="control-label" for="weeklypages">Pages Per Term:</label>
             <input id="weeklypagesreading" min='0' type="number" class="form-control" value="0"/>
           </div>
           <hr/>
@@ -26,9 +27,9 @@
             <label class="control-label" for="readingdensity">Page Density:</label>
             <div>
               <select id="readingdensity">
-                <option value="1" selected>Low Density(450 Words)</option>
-                <option value="2">Medium Density(600 Words)</option>
-                <option value="3">High Density(750 Words)</option>
+                <option class="option" value="1" selected>Low Density(450 Words)</option>
+                <option class="option" value="2">Medium Density(600 Words)</option>
+                <option class="option" value="3">High Density(750 Words)</option>
               </select>
               <script type="application/json" data-for="readingdensity" data-nonempty="">{}</script>
             </div>
@@ -37,9 +38,9 @@
             <label class="control-label" for="difficulty">Difficulty:</label>
             <div>
               <select id="readingdifficulty">
-                <option value="1" selected>No New Concepts</option>
-                <option value="2">Some New Concepts</option>
-                <option value="3">Many New Concepts</option>
+                <option class="option" value="1" selected>No New Concepts</option>
+                <option class="option" value="2">Some New Concepts</option>
+                <option class="option" value="3">Many New Concepts</option>
               </select>
               <script type="application/json" data-for="difficulty" data-nonempty="">{}</script>
             </div>
@@ -48,9 +49,9 @@
             <label class="control-label" for="readingpurpose">Purpose:</label>
             <div>
               <select id="readingpurpose">
-                <option value="1" selected>Survey</option>
-                <option value="2">Understand</option>
-                <option value="3">Engage</option>
+                <option class="option" value="1" selected>Survey</option>
+                <option class="option" value="2">Understand</option>
+                <option class="option" value="3">Engage</option>
               </select>
               <script type="application/json" data-for="readingpurpose" data-nonempty="">{}</script>
             </div>
@@ -81,7 +82,7 @@
       <div class="col-sm-3">
         <h4>OTHER READING</h4>
         <div class="well">
-          <div class="form-group" style="width: 100%;">
+          <div class="form-group control-label" style="width: 100%;">
             <label for="weeklypages2">Pages Per Term:</label>
             <input id="weeklypagesreading2" min='0' type="number" class="form-control" value="0"/>
           </div>
@@ -90,9 +91,9 @@
             <label class="control-label" for="readingdensity2">Page Density:</label>
             <div>
               <select id="readingdensity2">
-                <option value="1" selected>Low Density(450 Words)</option>
-                <option value="2">Medium Density(600 Words)</option>
-                <option value="3">High Density(750 Words)</option>
+                <option class="option" value="1" selected>Low Density(450 Words)</option>
+                <option class="option" value="2">Medium Density(600 Words)</option>
+                <option class="option" value="3">High Density(750 Words)</option>
               </select>
               <script type="application/json" data-for="readingdensity2" data-nonempty="">{}</script>
             </div>
@@ -101,9 +102,9 @@
             <label class="control-label" for="difficulty2">Difficulty:</label>
             <div>
               <select id="readingdifficulty2">
-                <option value="1" selected>No New Concepts</option>
-                <option value="2">Some New Concepts</option>
-                <option value="3">Many New Concepts</option>
+                <option class="option" value="1" selected>No New Concepts</option>
+                <option class="option" value="2">Some New Concepts</option>
+                <option class="option" value="3">Many New Concepts</option>
               </select>
               <script type="application/json" data-for="difficulty2" data-nonempty="">{}</script>
             </div>
@@ -112,9 +113,9 @@
             <label class="control-label" for="readingpurpose2">Purpose:</label>
             <div>
               <select id="readingpurpose2">
-                <option value="1" selected>Survey</option>
-                <option value="2">Understand</option>
-                <option value="3">Engage</option>
+                <option class="option" value="1" selected>Survey</option>
+                <option class="option" value="2">Understand</option>
+                <option class="option" value="3">Engage</option>
               </select>
               <script type="application/json" data-for="readingpurpose2" data-nonempty="">{}</script>
             </div>
@@ -146,7 +147,7 @@
         <h4>PAPERS</h4>
         <div class="well">
           <div class="form-group" style="width: 100%;">
-            <label for="semesterpages">Pages Per Term:</label>
+            <label class="control-label" for="semesterpages">Pages Per Term:</label>
             <input id="semesterpages" type="number" class="form-control" min='0' value="0"/>
           </div>
           <hr/>
@@ -154,8 +155,8 @@
             <label class="control-label" for="writtendensity">Page Density:</label>
             <div>
               <select id="writtendensity">
-                <option value="1" selected>250 Words (D-Spaced)</option>
-                <option value="2">500 Words (S-Spaced)</option>
+                <option class="option" value="1" selected>250 Words (D-Spaced)</option>
+                <option class="option" value="2">500 Words (S-Spaced)</option>
               </select>  
               <script type="application/json" data-for="writtendensity" data-nonempty="">{}</script>
             </div>
@@ -164,9 +165,9 @@
             <label class="control-label" for="writingpurpose">Genre:</label>
             <div>
               <select id="writingpurpose">
-                <option value="1" selected>Reflection; Narrative</option>
-                <option value="2">Argument</option>
-                <option value="3">Research</option>
+                <option class="option" value="1" selected>Reflection; Narrative</option>
+                <option class="option" value="2">Argument</option>
+                <option class="option" value="3">Research</option>
               </select>
               <script type="application/json" data-for="writingpurpose" data-nonempty="">{}</script>
             </div>
@@ -175,9 +176,9 @@
             <label class="control-label" for="draftrevise">Drafting:</label>
             <div>
               <select id="draftrevise">
-                <option value="1" selected>No Drafting</option>
-                <option value="2">Minimal Drafting</option>
-                <option value="3">Extensive Drafting</option>
+                <option class="option" value="1" selected>No Drafting</option>
+                <option class="option" value="2">Minimal Drafting</option>
+                <option class="option" value="3">Extensive Drafting</option>
               </select>
               <script type="application/json" data-for="draftrevise" data-nonempty="">{}</script>
             </div>
@@ -209,7 +210,7 @@
         <h4>EXAMS</h4>
         <div class="well">
           <div class="form-group" style="width: 100%;">
-            <label for="exams">Exams Per Term:</label>
+            <label class="control-label" for="exams">Exams Per Term:</label>
             <input id="exams" type="number" min='0' class="form-control" value="0"/>
           </div>
           <div class="form-group" style="width: 100%;">
@@ -220,7 +221,7 @@
         <h4>OTHER ASSIGNMENTS</h4>
         <div class="well">
           <div class="form-group" style="width: 100%;">
-            <label for="otherassign">Assignments Per Term:</label>
+            <label class="control-label" for="otherassign">Assignments Per Term:</label>
             <input id="otherassign" type="number" min='0' class="form-control" value="0"/>
           </div>
           <div class="form-group" style="width: 100%;">
@@ -233,14 +234,14 @@
         <h4>IN CLASS TIME</h4>
         <div class="well">
             <div class="form-group shiny-input" style="width: 100%;">
-              <label for="lecturetime">Scheduled Class Hours Per Term:</label>
+              <label class="control-label" for="lecturetime">Scheduled Class Hours Per Term:</label>
               <input id="lecturetime" min='0' type="number" class="form-control" value="1">
             </div>
           </div>
         <h4>COURSE INFO</h4>
         <div class="well">
           <div class="form-group" style="width: 100%;">
-            <label for="classweeks">Number of Credits:</label>
+            <label class="control-label" for="classweeks">Number of Credits:</label>
             <input id="classweeks" min='0' type="number" class="form-control" value="1"/>
           </div>
         </div>

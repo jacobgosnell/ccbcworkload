@@ -1,11 +1,45 @@
 @media (min-width: 768px) {
-    .col-sm-3 {
-        width: 20%;
-    }
+  .col-sm-3 {
+    width: 20%;
+  }
 }
 
-button, input:not([type='checkbox']), select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    width: 85%;
+button,
+input:not([type="checkbox"]),
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  width: 85%;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+#bootstrap-overrides h3 {
+  font-size: 30px;
+  font-family: "Poppins", Sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00395d;
+}
+
+#bootstrap-overrides h4 {
+  font-family: "Poppins", Sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 1.95rem;
+  color: #468499;
+}
+
+#bootstrap-overrides .control-label {
+  font-family: "Poppins", Sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: 1.25px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
