@@ -28,10 +28,8 @@ $(function () {
         wholeOutcome();
         if ($("#setwritingrate3").is(":checked")) {
             $("#manualAdjuster3").show();
-            //$("#AddPassport").hide();
         } else {
             $("#manualAdjuster3").hide();
-            //$("#AddPassport").show();
         }
     });
 });
