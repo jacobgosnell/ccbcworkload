@@ -1,15 +1,12 @@
-// manual adjust hiders
-  
-//Reading Column
+//Manual Adjust Hiders  
+//Reading Columns
 $(function () {
     $("#setreadingrate").click(function () {
         wholeOutcome();
         if ($(this).is(":checked")) {
             $("#manualAdjuster").show();
-            //$("#AddPassport").hide();
         } else {
             $("#manualAdjuster").hide();
-            //$("#AddPassport").show();
         }
     });
 });
@@ -19,27 +16,11 @@ $(function () {
         wholeOutcome();
         if ($(this).is(":checked")) {
             $("#manualAdjuster2").show();
-            //$("#AddPassport").hide();
         } else {
             $("#manualAdjuster2").hide();
-            //$("#AddPassport").show();
         }
     });
 });
-
-// Bible Reading Column
-// $(function () {
-//     $("#setreadingrate2").click(function () {
-//         wholeOutcome();
-//         if ($("#setreadingrate2").is(":checked")) {
-//             $("#manualAdjuster2").show();
-//             //$("#AddPassport").hide();
-//         } else {
-//             $("#manualAdjuster2").hide();
-//             //$("#AddPassport").show();
-//         }
-//     });
-// });
 
 // Papers Column
 $(function () {
@@ -55,14 +36,6 @@ $(function () {
     });
 });
 
-
-// setreadingrate.addEventListener('click', (e) => {
-//   setreadingrate.parentElement.classList.toggle('active');
-// });
-
-
-/* Hello it's Braden. Here's some JS */
-
 var weeklypagesreading = document.getElementById('weeklypagesreading'),
 readingdensity = document.getElementById('readingdensity'),
 readingdifficulty = document.getElementById('readingdifficulty'),
@@ -73,9 +46,6 @@ readingdensity2 = document.getElementById('readingdensity2'),
 readingdifficulty2 = document.getElementById('readingdifficulty2'),
 readingpurpose2= document.getElementById('readingpurpose2'),
 
-// weeklypagesbible = document.getElementById('weeklypagesbible'),
-// weeklypagescom = document.getElementById('weeklypagescom'),
-// overridepagesperhourcom = document.getElementById('overridepagesperhourcom'),
 writingdensity = document.getElementById('writtendensity'),
 writingpurpose = document.getElementById('writingpurpose'),
 semesterPages = document.getElementById('semesterpages'),
@@ -126,7 +96,6 @@ writinginputs.forEach(function(writingInput){
     });
 });
 
-
 function readingPagesPerHour() {
     if (document.getElementById('setreadingrate').checked) {
         pagesPerHourResult = document.getElementById('overridepagesperhour').value;     
@@ -145,14 +114,6 @@ function readingPagesPerHour2() {
     }
 }
 
-// function readingPagesPerHourBible() {
-//     if (document.getElementById('setreadingrate2').checked){
-//         pagesPerHourBibleResult = document.getElementById('overridepagesperhourbible').value;
-//     } else {
-//         pagesPerHourBibleResult = 10;
-//     }
-// }
-
 function writingHours() {
     if (document.getElementById('setwritingrate3').checked) {
         hoursPerWritingResult = document.getElementById('overridehoursperwriting').value;
@@ -162,28 +123,18 @@ function writingHours() {
     }
 }
 
-
 function wholeOutcome() {
     readingPagesPerHour();
     readingPagesPerHour2();
-    // readingPagesPerHourBible();
     writingHours();
 
     // Reading Assignments
     let weekpages = weeklypagesreading.value;
     let pagesperhour = pagesPerHourResult;
 
-    // Reading Assignments
+    // Other Reading Assignments
     let weekpages2 = weeklypagesreading2.value;
     let pagesperhour4 = pagesPerHourResult2;
-
-    // // Bible Reading
-    // let week_pages_bible = weeklypagesbible.value;
-    // let pagesperhourbible = pagesPerHourBibleResult;
-
-    // Commmentary Reading
-    // let week_pages_commentary = weeklypagescom.value;
-    // let pages_per_hour_commentary = overridepagesperhourcom.value;
 
     //  Papers (Writing)
     let semesterpages = semesterPages.value;
@@ -203,8 +154,6 @@ function wholeOutcome() {
     // Sum of all assignments
     let sum_of_assignments = ( parseFloat(weekpages) / parseFloat(pagesperhour) ) + 
                             ( parseFloat(weekpages2) / parseFloat(pagesperhour4) ) + 
-                            // ( parseFloat(week_pages_bible) / parseFloat(pagesperhourbible) ) +
-                            // ( parseFloat(week_pages_commentary) / parseFloat(pages_per_hour_commentary) ) +
                             ( (parseFloat(hoursperwriting) * parseFloat(semesterpages)) / parseFloat(classWeeks)) +
                             ( (parseFloat(theExams) * parseFloat(theExamhours)) / parseFloat(classWeeks)) +
                             ( (parseFloat(theOtherassign) * parseFloat(theOtherhours)) / parseFloat(classWeeks));
@@ -245,7 +194,6 @@ selectinputs.forEach(function(textInput){
 $(document).ready(function(){
     readingPagesPerHour();
     readingPagesPerHour2();
-    // readingPagesPerHourBible();
     writingHours();
     pagesPerHourResultSpot.innerHTML = pagesPerHourResult + ' pages per hour';
     pagesPerHourResultSpot2.innerHTML = pagesPerHourResult2 + ' pages per hour';
