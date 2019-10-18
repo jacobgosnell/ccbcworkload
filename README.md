@@ -1,4 +1,4 @@
-# CCBCworkload Calculator
+# CCBC Workload Calculator
 https://calvarychapelbiblecollege.com/ccbcworkload.
 
 ## Usage
