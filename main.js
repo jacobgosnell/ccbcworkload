@@ -149,14 +149,13 @@ function wholeOutcome() {
     // Course Info
     let classWeeks = classweeks.value;
     
-    // Sum of all assignments
     let sum_of_assignments = ( parseFloat(weekpages) / parseFloat(pagesperhour) ) + 
                             ( parseFloat(weekpages2) / parseFloat(pagesperhour4) ) + 
-                            ( (parseFloat(hoursperwriting) * parseFloat(semesterpages)) / parseFloat(classWeeks)) +
-                            ( (parseFloat(theExams) * parseFloat(theExamhours)) / parseFloat(classWeeks)) +
-                            ( (parseFloat(theOtherassign) * parseFloat(theOtherhours)) / parseFloat(classWeeks));
+                            ( (parseFloat(hoursperwriting) * parseFloat(semesterpages)) ) +
+                            ( (parseFloat(theExams) * parseFloat(theExamhours)) ) +
+                            ( (parseFloat(theOtherassign) * parseFloat(theOtherhours)) );
 
-    // Adddin total class hours                        
+    // Addding total class hours                        
     let mega_total = sum_of_assignments + parseFloat(lecturetime.value);
 
     // Dividing by total credit
