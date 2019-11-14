@@ -77,19 +77,19 @@ readinginputs2 = [readingdensity2, readingdifficulty2, readingpurpose2],
 writinginputs = [writingdensity, writingpurpose, draftrevise];
 
 readinginputs.forEach(function(readingInput){
-    readingInput.addEventListener('keyup', function(){
+    readingInput.addEventListener('input', function(){
         readingPagesPerHour();
     });
 });
 
 readinginputs2.forEach(function(readingInput2){
-    readingInput2.addEventListener('keyup', function(){
+    readingInput2.addEventListener('input', function(){
         readingPagesPerHour2();
     });
 });
 
 writinginputs.forEach(function(writingInput){
-    writingInput.addEventListener('keyup', function(){
+    writingInput.addEventListener('input', function(){
         writingHours();
     });
 });
@@ -163,7 +163,7 @@ function wholeOutcome() {
 }
 
 textinputs.forEach(function(textInput){
-    textInput.addEventListener('keyup', function(){
+    textInput.addEventListener('input', function(){
         var out = wholeOutcome();
         
         if(!isNaN(out) && (out !== Infinity)) {
@@ -176,7 +176,7 @@ textinputs.forEach(function(textInput){
 });
 
 selectinputs.forEach(function(textInput){
-    textInput.addEventListener('keyup', function(){
+    textInput.addEventListener('input', function(){
         var out = wholeOutcome();
         
         if(!isNaN(out) && (out !== Infinity)) {
